@@ -1,15 +1,19 @@
 {
   "name": "@NabaaArt/component-library",
-  "version": "1.2.6",
+  "version": "1.2.8",
   "description": "A simple template for a custom React component library",
   "type": "module",
   "scripts": {
     "rollup": "rollup -c",
-   "build:css": "npx postcss src/styles/tailwind.css -o dist/tailwind.css",
-  "build": "npm run build:css"
+    "build:css": "npx postcss src/styles/tailwind.css -o dist/tailwind.css",
+    "build": "npm run build:css"
   },
   "author": "nabaa",
   "license": "ISC",
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
@@ -17,6 +21,7 @@
     "@types/react": "^18.3.3",
     "postcss-cli": "^11.0.0",
     "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "rollup": "^4.20.0",
     "rollup-plugin-dts": "^6.1.1",
     "typescript": "^5.5.4"
@@ -31,7 +36,7 @@
     "tslib": "^2.6.3"
   },
   "main": "dist/cjs/index.js",
-  "styles": "dist/cjs/tailwind.css",
+  "styles": "src/styles/tailwind.css",
   "module": "dist/esm/index.js",
   "files": [
     "dist"

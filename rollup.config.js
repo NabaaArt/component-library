@@ -6,8 +6,10 @@ import packageJson from "./package.json" assert { type: "json" };
 import postcss from 'rollup-plugin-postcss';
 import sourcemaps from 'rollup-plugin-sourcemaps';
 
+
 export default [
   {
+    external: ["react", "react-dom"],
     input: "src/index.ts",
     output: [
       {
@@ -26,9 +28,17 @@ export default [
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss({
-        extract: true,
+        config: {
+          path: "./postcss.config.js",
+        },
+        extensions: [".css"],
+        minimize: true,
+        inject: {
+          insertAt: "top",
+        },
       }),
       sourcemaps(),
+
     ],
   },
   {
@@ -36,4 +46,5 @@ export default [
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
   },
+  
 ];

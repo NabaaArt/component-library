@@ -1,12 +1,13 @@
 {
   "name": "@NabaaArt/component-library",
-  "version": "2.2.2",
+  "version": "2.2.5",
   "description": "A simple template for a custom React component library",
   "type": "module",
   "scripts": {
     "rollup": "rollup -c",
-    "build:css": "npx postcss src/styles/tailwind.css -o dist/tailwind.css",
-    "build": "npm run build:css"
+    "build:css": "npx postcss src/components/styles/tailwind.css -o dist/tailwind.css",
+    "build": "npm run build:css && npm run rollup",
+    "prepublishOnly": "npm run build" 
   },
   "author": "nabaa",
   "license": "ISC",

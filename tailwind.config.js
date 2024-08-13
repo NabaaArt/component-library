@@ -3,7 +3,6 @@ export default {
   content: [    "./src/**/*.{js,ts,jsx,tsx}",
 
   ],
-  purge: ["./components/**/*.{tsx,ts}"],
   theme: {
     extend: {},
   },

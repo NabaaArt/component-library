@@ -3,6 +3,8 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import packageJson from "./package.json" assert { type: "json" };
+import postcss from 'rollup-plugin-postcss';
+import sourcemaps from 'rollup-plugin-sourcemaps';
 
 export default [
   {
@@ -23,6 +25,10 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
+      postcss({
+        extract: true,
+      }),
+      sourcemaps(),
     ],
   },
   {
